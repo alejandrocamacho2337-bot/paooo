@@ -1,0 +1,33 @@
+/* Estilo base para centrar el juego */
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fce7f3; /* Rosa claro de fondo */
+    overflow: hidden;
+    touch-action: manipulation; /* Mejor manejo táctil en móviles */
+}
+
+/* Estilo para el Canvas del juego */
+#gameCanvas {
+    box-shadow: 0 10px 30px rgba(255, 0, 102, 0.4);
+    border-radius: 12px;
+    background-color: #2d3748; /* Oscuro para el contraste */
+}
+
+/* Animación de Corazones (Emojis) */
+.heart-emoji-piece {
+    position: absolute;
+    font-size: 20px; /* Tamaño del emoji de corazón */
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    animation: fall-heart 5s linear infinite;
+}
+
+@keyframes fall-heart {
+    0% { transform: translate(var(--x), var(--y)) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--x-end), 100vh) rotate(720deg); opacity: 0; }
+}
